@@ -1,0 +1,130 @@
+@import "_fonts";
+@import "_null";
+@import "_search";
+@import "_about";
+@import "_cart";
+
+header {
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    &:before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgb(54, 121, 121);
+        z-index: 1;
+    }
+    .container {
+        max-width: 900px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        nav {
+            z-index: 2;
+            margin-right: 10px;
+            display: flex;
+            a {
+                font-size: 30px;
+                margin: 13px auto 13px 50px;
+                color: antiquewhite;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+section {
+    height: 100%;
+    background: antiquewhite;
+    font-size: 20px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    .container {
+        background: antiquewhite;
+        .container2 {
+            padding: 110px 10px 10px 10px;
+            margin: auto;
+            max-width: 1300px;
+            text-align: justify;
+        }
+    } 
+    
+}
+
+
+
+@media (max-width: 768px) {
+    header {
+        z-index: 3;
+        height: 60px;
+        &:before {
+            z-index: 3;
+        }
+        .container {
+            .burger {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+                z-index: 4;
+                &:before,
+                &:after,
+                span {
+                    position: absolute;
+                    content: "";
+                    width: 40px;
+                    height: 4px;
+                    left: 0;
+                    background: white;
+                    transition: 0.5s;
+                }
+                &:before {
+                    top: 5px;
+                }
+                &:after {
+                    bottom: 5px;
+                }
+                span {
+                    top: 18px;
+                }
+                &.active:before {
+                    transform: rotate(45deg);
+                    top: 18px;
+                }
+                &.active:after {
+                    transform: rotate(-45deg);
+                    bottom: 18px;
+                }
+                &.active span {
+                    width: 0;
+                    left: 50%;
+                }
+            }
+            nav {
+                position: fixed;
+                content: "";
+                top: -100%;
+                left: 0;
+                background-color: rgb(89, 173, 89);
+                width: 100%;
+                height: 100%;
+                padding-top: 100px;
+                flex-direction: column;
+                transition: 1s;
+                overflow: auto;
+                a {
+                    padding: 20px;
+                    font-size: 40px;
+                }
+            }
+        }
+    }
+}
+
+
+
